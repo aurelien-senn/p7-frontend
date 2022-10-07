@@ -3,11 +3,10 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Home/index';
 import Register from './Register/index';
 import Login from './Login/index';
-import Logout from './Logout/index';
 import Profil from './Profil/index';
 import Navbar from './Navbar/index';
-
-
+import Post from './Post/index';
+import Style from './style.css'
 
 const Header = styled.header`
 color: red;
@@ -19,18 +18,22 @@ a{
 `
 function App() {
   return (
-    <Header >
-      <Navbar />
-      <Login />
-      <Register />
-      <Logout />
-      <Routes>
-
-        <Route path="/" element={<Home />} />
-        <Route path="/Profil" element={<Profil />} />
-      </Routes>
-    </Header >
-
+    <body>
+      <Header >
+        <Navbar />
+      </Header >
+      <section>
+        <Login />
+        <Register />
+        <Post />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Profil" element={<Profil />} />
+        </Routes>
+      </section>
+      <footer>
+      </footer>
+    </body>
   );
 }
 

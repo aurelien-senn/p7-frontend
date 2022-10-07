@@ -6,7 +6,8 @@ export function UserContextProvider(props) {
 
     const [modalState, setModelState] = useState({
         signUpModal: false,
-        signInModal: false
+        signInModal: false,
+        newPostModal: false
 
     });
 
@@ -14,21 +15,31 @@ export function UserContextProvider(props) {
         if (modal == "signIn") {
             setModelState({
                 signUpModal: false,
-                signInModal: true
+                signInModal: true,
+                newPostModal: false
 
             })
         }
         if (modal == "signUp") {
             setModelState({
                 signUpModal: true,
-                signInModal: false
+                signInModal: false,
+                newPostModal: false
+            })
+        }
+        if (modal == "newPost") {
+            setModelState({
+                signUpModal: false,
+                signInModal: false,
+                newPostModal: true
 
             })
         }
         if (modal == "close") {
             setModelState({
                 signUpModal: false,
-                signInModal: false
+                signInModal: false,
+                newPostModal: false
 
             })
         }

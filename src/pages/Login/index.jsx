@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import axios from '../../api/axios';
 import { UserContext } from '../../context/userContext'
+import './index.css'
 
 const REGISTER_URL = '/api/auth/login';
 
@@ -46,30 +47,35 @@ export default function Login() {
                 <h1>Connexion réussit</h1>
             ) : (
                 modalState.signInModal && (
-                    <div>
-                        <h5>Connexion</h5>
-                        <button onClick={() => toggleModals("close")}>fermer</button>
-                        <form onSubmit={handleForm}>
-                            <label htmlFor="signInEmail"> Email :</label>
-                            <input
-                                ref={addInputs}
-                                type="email"
-                                name="email"
-                                required
-                                id="signInEmail"
-                            />
-                            <label htmlFor="signUpPwd"> Mot de passe :</label>
-                            <input
-                                ref={addInputs}
-                                type="password"
-                                name="pwd"
-                                required
-                                id="signInPwd"
-                            />
+                    <div className='modal'>
+                        <div className='modal-content'>
+                            <h2>Connexion</h2>
+                            <button className='btn-close' onClick={() => toggleModals("close")}>X</button>
+                            <form onSubmit={handleForm}>
+                                <label htmlFor="signInEmail"> Email :</label>
+                                <br />
+                                <input
+                                    ref={addInputs}
+                                    type="email"
+                                    name="email"
+                                    required
+                                    id="signInEmail"
+                                />
+                                <br />
+                                <label htmlFor="signUpPwd"> Mot de passe :</label>
+                                <br />
+                                <input
+                                    ref={addInputs}
+                                    type="password"
+                                    name="pwd"
+                                    required
+                                    id="signInPwd"
+                                />
 
-                            <p>{validation}</p>
-                            <button>Soumettre</button>
-                        </form>
+                                <p>{validation}</p>
+                                <button>Soumettre</button>
+                            </form>
+                        </div>
                     </div>
                 )
             )
