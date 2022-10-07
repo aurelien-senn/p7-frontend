@@ -14,6 +14,8 @@ export default function Publication() {
     const [file, setFile] = useState();
     const inputs = useRef([])
 
+    const testauthHeader = authHeader();
+    console.log(testauthHeader.authorization);
     const addInputs = el => {
         if (el && !inputs.current.includes(el)) {
             inputs.current.push(el)
@@ -31,11 +33,10 @@ export default function Publication() {
             const image = file;
             const postThing = ({ title: title, description: text, image: image });
 
-
             await axios.post(REGISTER_URL, postThing, {
                 headers: {
                     "Content-type": "multipart/form-data",
-                    "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzM5ODNjMzZmNGMyODliMDVhOGNmMWQiLCJpYXQiOjE2NjUxMjkxNDksImV4cCI6MTY2NTg0OTE0OX0.bGmwOoJsP925spdLytb6Z4Zkjc50NLsqXjVYTb3Ecdg",
+                    "authorization": `${testauthHeader.authorization}`,
                 }
             })
 
