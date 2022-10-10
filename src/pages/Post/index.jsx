@@ -85,6 +85,7 @@ export default function Publication() {
                                     required
                                     id="postDescription"
                                 />
+                                <br />
                                 <label htmlFor="NewPostImage"> Image:</label>
                                 <br />
                                 <input
