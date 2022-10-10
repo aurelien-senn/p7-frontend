@@ -7,6 +7,7 @@ const REGISTER_URL = '/api/stuff';
 
 function Home() {
     const [data, setData] = useState([]);
+
     const [validation, setValidation] = useState('');
     const user = localStorage.getItem('user');
     const { toggleModals, modalState } = useContext(UserContext);
@@ -34,17 +35,26 @@ function Home() {
     }
     useEffect(() => {
         getPublication();
+
     }, []);
+    const datas = data.reverse();
+
     return (
         <>
-            <h1>test</h1>
-            <h2>{validation}</h2>
-            {data.map((x) => (
-                <article key={x._id}>
-                    <h2>{x.title}</h2>
-                    <p>{x.description}</p>
-                </article>
-            ))}
+            <h1>{validation}</h1>
+            <div className="modal ">
+                {datas.map((x) => (
+                    <article key={x._id} className='modal-content'>
+
+                        {/* affichage si admin ou auteur */}
+                        <button className='btn1-close'>X</button>
+
+                        <h2>{x.title}</h2>
+                        <p>{x.description}</p>
+                        <img alt={x.title} src={x.imageUrl} />
+                    </article>
+                ))}
+            </div>
 
         </>
     )

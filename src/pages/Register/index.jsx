@@ -70,8 +70,8 @@ export default function Register() {
                 <h1>Inscription réussit</h1>
             ) : (
                 modalState.signUpModal && (
-                    <div className='modal'>
-                        <div className='modal-content'>
+                    <div className='modal1'>
+                        <div className='modal1-content'>
                             <h2>Inscription</h2>
                             <button onClick={() => toggleModals("close")} className='btn-close'>X</button>
                             <form onSubmit={handleForm}>

@@ -1,6 +1,6 @@
-.modal {
+.modal1 {
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     left: 0;
     top: 200px;
     width: 100%;
@@ -11,13 +11,15 @@
 
 
 
-.modal-content {
+.modal1-content {
+    z-index: 4;
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: auto;
+    margin-top: 30px;
     padding: 20px;
     border: 1px solid #888;
-    width: 20vw;
-    height: 30vw;
+    width: 60vw;
+
     border-radius: 20px;
     text-align: center;
     min-width: 13rem;
@@ -88,4 +90,8 @@ input {
     padding: 10px;
     border: none;
     border-radius: 10px;
+}
+
+.submit {
+    bottom: 0;
 }

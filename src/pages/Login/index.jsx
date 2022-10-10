@@ -47,8 +47,8 @@ export default function Login() {
                 <h1>Connexion réussit</h1>
             ) : (
                 modalState.signInModal && (
-                    <div className='modal'>
-                        <div className='modal-content'>
+                    <div className='modal1'>
+                        <div className='modal1-content'>
                             <h2>Connexion</h2>
                             <button className='btn-close' onClick={() => toggleModals("close")}>X</button>
                             <form onSubmit={handleForm}>

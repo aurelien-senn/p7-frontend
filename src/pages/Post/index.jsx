@@ -61,8 +61,8 @@ export default function Publication() {
                 <h1>Publication enregistrée !</h1>
             ) : (
                 modalState.newPostModal && (
-                    <div className='modal'>
-                        <div className='modal-content'>
+                    <div className='modal1'>
+                        <div className='modal1-content'>
                             <h2>Publication</h2>
                             <button className='btn-close' onClick={() => toggleModals("close")}>X</button>
                             <form onSubmit={handleForm}>
@@ -100,8 +100,8 @@ export default function Publication() {
                                     }}
                                 />
 
-                                <p>{validation}</p>
-                                <button>Soumettre</button>
+                                <p >{validation}</p>
+                                <button className='submit'>Soumettre</button>
                             </form>
                         </div>
                     </div>
