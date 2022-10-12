@@ -1,6 +1,5 @@
 body {
-    margin: 0;
-    padding: 0;
+    margin: auto;
 }
 
 button {
@@ -71,11 +70,12 @@ li {
     list-style: none;
 }
 
-img {
+.imgLogo {
     width: 50vw;
+    max-width: 700px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
     nav {
         flex-direction: column;
         margin: 0;
@@ -96,9 +96,9 @@ img {
         margin: 0 .2vw .2vh .2vw;
     }
 
-    img {
-        width: 90vw;
-    }
+
 
 
 }
+
+.navBar {}

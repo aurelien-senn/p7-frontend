@@ -23,7 +23,7 @@ export default function Register() {
 
         const v1 = USER_REGEX.test(inputs.current[0].value);
         const v2 = PWD_REGEX.test(inputs.current[1].value);
-        console.log(inputs.current[1].value);
+
         if ((inputs.current[1].value.length || inputs.current[2].value.length) < 8) {
             setValidation("8 caractères minimum")
 
@@ -41,29 +41,28 @@ export default function Register() {
             const email = inputs.current[0].value;
             const password = inputs.current[1].value;
             const data = JSON.stringify({ email: email, password: password });
-            console.log(data);
+            console.log('ok');
             await axios.post(REGISTER_URL, { data })
                 .then(res => {
-                    console.log(res);
-                    console.log(res.data);
+
                 })
 
-            console.log('ok');
+
             setSuccess(true);
 
         } catch (err) {
             if (!err?.response) {
                 setValidation('pas de reponse serveur');
+                return;
             } else if (err.response?.status === 409) {
                 setValidation('Email déja utilisé');
+                return;
             } else {
-                setValidation('Echec de l\'inscription')
+                setValidation('Echec de l\'inscription');
+                return;
             }
         }
     }
-
-
-
     return (
         <>
             {success ? (

@@ -15,7 +15,7 @@ export default function Publication() {
     const inputs = useRef([])
 
     const testauthHeader = authHeader();
-    console.log(testauthHeader.authorization);
+
     const addInputs = el => {
         if (el && !inputs.current.includes(el)) {
             inputs.current.push(el)
@@ -25,6 +25,7 @@ export default function Publication() {
 
     const handleForm = async (e) => {
         e.preventDefault()
+
 
         try {
 
@@ -50,8 +51,10 @@ export default function Publication() {
         } catch (err) {
             if (!err?.response) {
                 setValidation('pas de reponse serveur');
+
             } else {
                 setValidation('Echec de la connexion')
+
             }
         }
     }

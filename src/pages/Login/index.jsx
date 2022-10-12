@@ -22,14 +22,14 @@ export default function Login() {
             const email = inputs.current[0].value;
             const password = inputs.current[1].value;
             const data = JSON.stringify({ email: email, password: password });
-            console.log(data);
             await axios.post(REGISTER_URL, { data })
                 .then(res => {
                     localStorage.setItem("user", JSON.stringify(res.data));
                 })
 
-            console.log('ok');
+
             setSuccess(true);
+            window.location.reload();
 
         } catch (err) {
             if (!err?.response) {
