@@ -17,13 +17,15 @@ function Home() {
     const { toggleModals } = useContext(UserContext)
     const testauthHeader = authHeader();
     const [validationDel, setValidationDel] = useState('ok');
+    // si true like
+    const [like, setLike] = useState(false);
+    const [dislike, setDislike] = useState(false);
 
     function DeletePublication(id) {
+        console.log(id);
 
-        console.log(`${REGISTER_URL}/:id`);
         const dataDel = id.x._id;
-        console.log(dataDel);
-        console.log(testauthHeader.authorization);
+
         try {
             axios.delete(`${REGISTER_URL}/${dataDel}`, {
                 headers: {
@@ -81,10 +83,50 @@ function Home() {
                 setValidation('Echec de la connexion')
             }
         }
+
+    }
+    function LikeDislike(likeDislike, userLiked, userDisliked) {
+        const idUser = JSON.parse(user).userId;
+
+        console.log(likeDislike);
+        console.log(data);
+        console.log(userLiked);
+        console.log(idUser);
+        console.log(userDisliked.indexOf(idUser));
+        console.log(userLiked.indexOf(idUser));
+
+        if (userLiked.indexOf(idUser) !== -1 && likeDislike === 'dislike' || userDisliked.indexOf(idUser) !== -1 && likeDislike === 'like') {
+            console.log("deja liker ou disliker");
+        } else {
+            if (userLiked.indexOf(idUser) === -1 && userDisliked.indexOf(idUser) === -1) {
+                // add like ou dislike
+                // active curseur pointeur sur like ou dislike
+                console.log('like ou dislike');
+                if (likeDislike === 'like') {
+                    console.log("like");
+                    // add like
+                    // desactive pointeur sur dislike
+                } else if (likeDislike === 'dislike') {
+                    // add dislike
+                    // desactive pointeur sur like
+                    console.log("dislike");
+                }
+                console.log('ok');
+            } else if (userDisliked.indexOf(idUser) !== -1 && likeDislike === 'dislike') {
+                //   supp dislike
+                // reactive pointeur sur les deux
+            } else if (userLiked.indexOf(idUser) !== -1 && likeDislike === 'like') {
+                // supp like
+                // reactive pointeur sur les deux
+            }
+        }
     }
     useEffect(() => {
         getPublication();
+
     }, []);
+
+
 
 
     const datas = data.reverse();
@@ -103,6 +145,8 @@ function Home() {
                         < h2 > {x.title}  </h2>
                         <p>{x._id}</p>
                         <p className='truncate-overflow' >{x.description}</p>
+                        <button className={like} onClick={() => LikeDislike('like', x.usersLiked, x.usersDisliked)}>like: {x.likes} </button>
+                        <button className={dislike} onClick={() => LikeDislike('dislike', x.usersLiked, x.usersDisliked)}>dislike:{x.dislikes}</button>
                         <img alt={x.title} src={x.imageUrl} />
                     </article>
                 ))
