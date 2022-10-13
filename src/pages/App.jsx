@@ -18,7 +18,7 @@ a{
 `
 function App() {
   return (
-    <body>
+    <>
       <Header >
         <Navbar />
       </Header >
@@ -33,7 +33,7 @@ function App() {
       </section>
       <footer>
       </footer>
-    </body>
+    </>
   );
 }
 
