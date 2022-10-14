@@ -3,6 +3,7 @@ import axios from '../../api/axios';
 import { UserContext } from '../../context/userContext'
 import './index.css'
 import authHeader from '../../services/auth-header'
+
 const REGISTER_URL = '/api/stuff';
 
 export default function Publication() {
@@ -43,6 +44,8 @@ export default function Publication() {
 
                 .then(res => {
                     setValidation('Publication enregistrée !');
+                    window.location.reload();
+
                 })
 
 

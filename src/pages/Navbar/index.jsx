@@ -8,14 +8,10 @@ import './index.css'
 export default function Navbar() {
 
     const { toggleModals } = useContext(UserContext)
-
-    const localeStorageUser = localStorage.getItem("user");
-    console.log(localeStorageUser);
     const logout = () => {
-
         localStorage.clear();
         window.location.reload();
-
+        console.log('ici');
     };
     return (
         <div className='navBar'>
@@ -26,7 +22,6 @@ export default function Navbar() {
                     <li> <Link to="/">Accueil</Link> </li>
                 </ul>
                 <ul>
-
                     <li> <button onClick={() => toggleModals('signUp')}>Inscription</button></li>
                     <li> <button onClick={() => toggleModals('signIn')}>Connexion</button></li>
 
