@@ -3,20 +3,20 @@ import axios from '../../api/axios';
 import { UserContext } from '../../context/userContext'
 import './index.css'
 import authHeader from '../../services/auth-header'
+
 const REGISTER_URL = '/api/stuff';
 
 function Home() {
 
     const [data, setData] = useState([]);
     const user = localStorage.getItem('user');
-    const { toggleModals } = useContext(UserContext)
+    const { toggleModals, modalState } = useContext(UserContext)
     const testauthHeader = authHeader();
     const [validationDel, setValidationDel] = useState('ok');
     const localeStorageUser = JSON.parse(localStorage.getItem("user"));
-
     const getPublication = () => {
         try {
-            console.log(('avant axios'));
+
             if (!localeStorageUser) {
 
                 toggleModals('signIn')
@@ -29,10 +29,10 @@ function Home() {
             })
                 .then(res => {
                     setData(res.data.reverse())
-                    console.log('Youpi');
+
                 })
         } catch (err) {
-            console.log('apres axios');
+
             if (!err?.response) {
                 console.log('erreur serveur');
             } else {
@@ -43,6 +43,7 @@ function Home() {
 
     useEffect(() => {
         getPublication();
+
     }, []);
 
     function DeletePublication(id) {
@@ -74,7 +75,7 @@ function Home() {
         if ((userLiked.indexOf(idUser) !== -1 && likeDislike === 'dislike') || (userDisliked.indexOf(idUser) !== -1 && likeDislike === 'like')) {
         } else {
             if (userLiked.indexOf(idUser) === -1 && userDisliked.indexOf(idUser) === -1) {
-                console.log('like ou dislike');
+
                 if (likeDislike === 'like') {
                     number = 1;
                 } else if (likeDislike === 'dislike') {
@@ -106,6 +107,12 @@ function Home() {
         }
 
     }
+    function localStorageUpdate(idPost) {
+
+        localStorage.setItem("updatePost", JSON.stringify(idPost));
+        toggleModals('updatePost')
+
+    }
 
     return (
         <>
@@ -114,19 +121,18 @@ function Home() {
                 {data.map((x) => (
                     <article key={x._id} className='modal-content'>
                         {/* affichage si admin ou auteur */}
-                        {(x.userId === localeStorageUser.userId || localeStorageUser.admin) ? <button onClick={() => DeletePublication({ x })}>X</button> : <div></div>}
-
-
-
+                        {(x.userId === localeStorageUser.userId || localeStorageUser.admin) ?
+                            <>
+                                <button onClick={() => DeletePublication({ x })}>X</button>
+                                <button onClick={() => { localStorageUpdate(x) }} >modifier</button>
+                            </> : <></>}
                         < h2 > {x.title}  </h2>
-                        <p>{x.userId}</p>
-                        <p>{localeStorageUser.userId}</p>
                         <p className='truncate-overflow' >{x.description}</p>
                         {/* test si deja liker */}
                         <button className={(x.usersLiked.indexOf(localeStorageUser.userId) !== -1) ? 'red' : 'grey'} onClick={() => LikeDislike('like', x, x.usersLiked, x.usersDisliked)}>like: {x.likes} </button>
                         {/* test su deja duskijer */}
                         <button className={(x.usersDisliked.indexOf(localeStorageUser.userId) !== -1) ? 'red' : 'grey'} onClick={() => LikeDislike('dislike', x, x.usersLiked, x.usersDisliked)}>dislike:{x.dislikes}</button>
-                        <img alt={x.title} src={x.imageUrl} />
+                        {typeof x.imageUrl !== 'undefined' ? <><img alt={x.title} src={x.imageUrl} /> </> : <></>}
                     </article>
                 ))
                 }

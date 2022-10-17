@@ -15,7 +15,13 @@ h1 {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.grey {
+    background-color: gray;
+}
 
+.red {
+    background-color: red;
+}
 
 
 

@@ -1,0 +1,80 @@
+.modal1 {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    width: 100%;
+
+
+}
+
+
+.modal2-content {
+    z-index: 4;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20vw;
+    height: 60vw;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 13rem;
+    min-height: 20rem;
+    position: relative;
+    animation: heart-progress 500ms ease-in-out forwards;
+}
+
+@keyframes heart-progress {
+    0% {
+        transform: scaley(1);
+        opacity: .2;
+    }
+
+    25% {
+
+        opacity: .3;
+    }
+
+    50% {
+        opacity: .5;
+        transform: scale(1.1);
+    }
+
+    75% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    90% {
+        transform: scaley(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.btn-close {
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    width: 10px;
+    padding: 5px 20px 5px 10px;
+    font-weight: 900;
+}
+
+.btn-signin {
+    background-color: #888;
+}
+
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.imgUpdate {
+    width: 15vw;
+}

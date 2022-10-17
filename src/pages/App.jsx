@@ -6,7 +6,8 @@ import Login from './Login/index';
 import Profil from './Profil/index';
 import Navbar from './Navbar/index';
 import Post from './Post/index';
-import Style from './style.css'
+import UpdatePost from './UpdatePost/index';
+import './style.css'
 
 const Header = styled.header`
 color: red;
@@ -23,9 +24,11 @@ function App() {
         <Navbar />
       </Header >
       <section>
+        <Post />
+
         <Login />
         <Register />
-        <Post />
+        <UpdatePost />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Profil" element={<Profil />} />

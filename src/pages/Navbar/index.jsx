@@ -11,7 +11,7 @@ export default function Navbar() {
     const logout = () => {
         localStorage.clear();
         window.location.reload();
-        console.log('ici');
+
     };
     return (
         <div className='navBar'>
