@@ -37,8 +37,6 @@ export default function Navbar() {
 
 
                         <>
-                            <li> <Link to="/Profil">Profil</Link> </li>
-                            <li> <Link to="/">Accueil</Link> </li>
                             <li> <button className="btn" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
                             <li>  <button className="btn" onClick={logout}>Déconnexion</button></li>
                         </>

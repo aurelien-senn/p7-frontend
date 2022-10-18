@@ -44,13 +44,17 @@ export default function Register() {
             const email = inputs.current[0].value;
             const prenom = inputs.current[1].value;
             const nom = inputs.current[2].value;
-
             const password = inputs.current[3].value;
-
             const image = file;
-            const data = JSON.stringify({ email: email, password: password, prenom: prenom, nom: nom, image: image });
-            console.log('ok');
-            await axios.post(REGISTER_URL, { data })
+            console.log(image);
+            const data = ({ email: email, password: password, prenom: prenom, nom: nom, image: image });
+            console.log(data.image);
+            await axios.post(REGISTER_URL, data,
+                {
+                    headers: {
+                        "Content-type": "multipart/form-data",
+                    }
+                })
                 .then(res => {
 
                 })

@@ -10,6 +10,7 @@ export function UserContextProvider(props) {
         newPostModal: false,
         updatePostModal: false,
         deletePostModal: false,
+        OnePostModal: false,
 
     });
 
@@ -21,7 +22,7 @@ export function UserContextProvider(props) {
                 newPostModal: false,
                 updatePostModal: false,
                 deletePostModal: false,
-
+                OnePostModal: false,
             })
         }
         if (modal == "signUp") {
@@ -31,6 +32,7 @@ export function UserContextProvider(props) {
                 newPostModal: false,
                 updatePostModal: false,
                 deletePostModal: false,
+                OnePostModal: false,
             })
         }
         if (modal == "newPost") {
@@ -40,7 +42,7 @@ export function UserContextProvider(props) {
                 newPostModal: true,
                 updatePostModal: false,
                 deletePostModal: false,
-
+                OnePostModal: false,
             })
         }
         if (modal == "updatePost") {
@@ -50,7 +52,7 @@ export function UserContextProvider(props) {
                 newPostModal: false,
                 updatePostModal: true,
                 deletePostModal: false,
-
+                OnePostModal: false,
             })
         }
         if (modal == "delete") {
@@ -60,7 +62,19 @@ export function UserContextProvider(props) {
                 newPostModal: false,
                 updatePostModal: false,
                 deletePostModal: true,
+                OnePostModal: false,
+            })
 
+        }
+
+        if (modal == "onePost") {
+            setModelState({
+                signUpModal: false,
+                signInModal: false,
+                newPostModal: false,
+                updatePostModal: false,
+                deletePostModal: false,
+                OnePostModal: true,
             })
 
         }
@@ -71,10 +85,11 @@ export function UserContextProvider(props) {
                 newPostModal: false,
                 updatePostModal: false,
                 deletePostModal: false,
-
+                OnePostModal: false,
             })
 
         }
+
 
     }
 
