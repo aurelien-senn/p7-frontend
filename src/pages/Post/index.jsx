@@ -4,6 +4,7 @@ import { UserContext } from '../../context/userContext'
 import './index.css'
 import authHeader from '../../services/auth-header'
 
+
 const REGISTER_URL = '/api/stuff';
 
 export default function Publication() {
@@ -43,7 +44,7 @@ export default function Publication() {
             })
 
                 .then(res => {
-                    setValidation('Publication enregistrée !');
+
                     window.location.reload();
 
                 })
@@ -61,58 +62,68 @@ export default function Publication() {
             }
         }
     }
+
+
+
+
+
     return (
         <>
-            {success ? (
-                <h1>Publication enregistrée !</h1>
-            ) : (
-                modalState.newPostModal && (
-                    <div className='modal1'>
-                        <div className='modal1-content'>
-                            <h2>Publication</h2>
-                            <button className='btn-close' onClick={() => toggleModals("close")}>X</button>
-                            <form onSubmit={handleForm}>
-                                <label htmlFor="NewPostTitle"> title :</label>
-                                <br />
-                                <input
-                                    ref={addInputs}
-                                    type="text"
-                                    name="title"
-                                    required
-                                    id="postTitle"
-                                />
-                                <br />
-                                <label htmlFor="NewPostDescription"> Exprimez vous :</label>
-                                <br />
-                                <input
-                                    ref={addInputs}
-                                    type="text"
-                                    name="description"
-                                    required
-                                    id="postDescription"
-                                />
-                                <br />
-                                <label htmlFor="NewPostImage"> Image:</label>
-                                <br />
-                                <input
-                                    ref={addInputs}
-                                    type="file"
-                                    name="image"
-                                    id="postImage"
-                                    accept='.jpg,.jpge,.png'
-                                    onChange={event => {
-                                        const file = event.target.files[0];
-                                        setFile(file);
-                                    }}
-                                />
-
-                                <p >{validation}</p>
-                                <button className='submit'>Soumettre</button>
-                            </form>
+            {
+                success ? (
+                    <div className='modal12'>
+                        <div className='modal12-content'>
+                            <h1> Etes vous sure de vouloir supprimer?</h1 >
                         </div>
                     </div>
+                ) : (
+                    modalState.newPostModal && (
+                        <div className='modal1'>
+                            <div className='modal1-content'>
+                                <h2>Publication</h2>
+                                <button className='btn-close' onClick={() => toggleModals("close")}>X</button>
+                                <form onSubmit={handleForm}>
+                                    <label htmlFor="NewPostTitle"> title :</label>
+                                    <br />
+                                    <input
+                                        ref={addInputs}
+                                        type="text"
+                                        name="title"
+                                        required
+                                        id="postTitle"
+                                    />
+                                    <br />
+                                    <label htmlFor="NewPostDescription"> Exprimez vous :</label>
+                                    <br />
+                                    <textarea
+                                        ref={addInputs}
+                                        type="text"
+                                        name="description"
+                                        required
+                                        id="postDescription"
+                                    ></textarea>
+                                    <br />
+                                    <label htmlFor="NewPostImage"> Image:</label>
+                                    <br />
+                                    <input
+                                        ref={addInputs}
+                                        type="file"
+                                        name="image"
+                                        id="postImage"
+                                        accept='.jpg,.jpge,.png'
+                                        onChange={
+                                            event => { setFile(event.target.files[0]); }
+                                        }
+                                    />
+
+
+                                    <p >{validation}</p>
+                                    <button className='submit'>Soumettre</button>
+                                </form>
+                            </div>
+                        </div>
+                    )
                 )
-            )
             }
         </>
     );

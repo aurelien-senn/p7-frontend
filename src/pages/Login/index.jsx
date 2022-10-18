@@ -75,6 +75,7 @@ export default function Login() {
                                 <p>{validation}</p>
                                 <button>Soumettre</button>
                             </form>
+                            <button onClick={() => toggleModals('signUp')}>S'inscrire ?</button>
                         </div>
                     </div>
                 )

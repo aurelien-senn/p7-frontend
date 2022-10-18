@@ -2,7 +2,7 @@ body {
     margin: auto;
 }
 
-button {
+.btn {
 
     width: 120px;
     background-color: #FD2D01;

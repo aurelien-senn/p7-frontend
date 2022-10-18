@@ -7,6 +7,7 @@ import Profil from './Profil/index';
 import Navbar from './Navbar/index';
 import Post from './Post/index';
 import UpdatePost from './UpdatePost/index';
+import Delete from './Delete/index';
 import './style.css'
 
 const Header = styled.header`
@@ -25,10 +26,10 @@ function App() {
       </Header >
       <section>
         <Post />
-
         <Login />
         <Register />
         <UpdatePost />
+        <Delete />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Profil" element={<Profil />} />

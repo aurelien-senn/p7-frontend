@@ -1,8 +1,12 @@
 import React, { useContext, useRef, useState } from 'react';
 import axios from '../../api/axios';
+
+
 import { UserContext } from '../../context/userContext'
 import './index.css'
 import authHeader from '../../services/auth-header'
+
+
 const REGISTER_URL = '/api/stuff';
 
 export default function UpdatePost() {
@@ -61,81 +65,61 @@ export default function UpdatePost() {
 
 
     }
-    function _onChange(e) {
 
-        const file = this.refs.uploadImg.files[0]
-        const reader = new FileReader();
 
-        reader.onloadend = () => {
-
-            setImageUrl(reader.result);
-
-        }
-        if (file) {
-            reader.readAsDataURL(file);
-
-            setImageUrl(reader.result)
-
-        }
-        else {
-
-            setImageUrl(localePost.imageUrl)
-
-        }
-    }
 
     return (
         <>
-            {success ? (
-                <h1>Inscription réussit</h1>
-            ) : (
-                modalState.updatePostModal && (
-                    <div className='modal1'>
-                        <div className='modal2-content'>
-                            <button onClick={() => toggleModals("close")} className='btn-close'>X</button>
-                            <h2>modifier la publication</h2>
-                            <form onSubmit={handleUpdate}>
-                                <label htmlFor="">titre</label>
-                                <br />
-                                <input
-                                    ref={updateInputs}
-                                    type="text"
-                                    name="titleUpdate"
-                                    id="updateTitle"
-                                    Value={localePost.title} />
-                                <br />
-                                <label >publication</label>
-                                <br />
-                                <input
-                                    ref={updateInputs}
-                                    type="text"
-                                    name="descriptionUpdate"
-                                    id="updateDescription"
-                                    Value={localePost.description}
-                                />
-                                <br />
-                                {typeof localePost.imageUrl !== 'undefined' ? <><img alt={localePost.title} className="imgUpdate" src={localePost.imageUrl} /> </> : <></>}
-                                <br />
-                                <label htmlFor="">image</label>
-                                <br />
-                                <input
-                                    ref={updateInputs}
-                                    type="file"
-                                    name="imageUpdate"
-                                    id="updateImage"
-                                    accept='.jpg,.jpge,.png'
-                                    onChange={event => {
-                                        const file = event.target.files[0];
-                                        setFile(file);
-                                    }} />
-                                <p>{validation}</p>
-                                <button>Soumettre</button>
-                            </form>
+            {
+                success ? (
+                    <h1> Modification réussit</h1 >
+                ) : (
+                    modalState.updatePostModal && (
+                        <div className='modal1'>
+                            <div className='modal2-content'>
+                                <button onClick={() => toggleModals("close")} className='btn-close'>X</button>
+                                <h2>modifier la publication</h2>
+                                <form onSubmit={handleUpdate}>
+                                    <label htmlFor="">titre</label>
+                                    <br />
+                                    <input
+                                        ref={updateInputs}
+                                        type="text"
+                                        name="titleUpdate"
+                                        id="updateTitle"
+                                        Value={localePost.title} />
+                                    <br />
+                                    <label >publication</label>
+                                    <br />
+                                    <textarea
+                                        ref={updateInputs}
+                                        type="text"
+                                        name="descriptionUpdate"
+                                        id="updateDescription"
+                                    >{localePost.description}</textarea>
+                                    <br />
+                                    {typeof localePost.imageUrl !== 'undefined' ? <><img alt={localePost.title} className="imgUpdate" src={localePost.imageUrl} /> </> : <></>}
+                                    <br />
+                                    <label htmlFor="">image</label>
+                                    <br />
+                                    <input
+                                        ref={updateInputs}
+                                        type="file"
+                                        name="imageUpdate"
+                                        id="updateImage"
+                                        accept='.jpg,.jpge,.png'
+                                        onChange={event => {
+                                            const file = event.target.files[0];
+                                            setFile(file);
+                                        }} />
+                                    <p>{validation}</p>
+                                    <button>Soumettre</button>
+                                </form>
 
+                            </div>
                         </div>
-                    </div>
 
-                ))
+                    ))
             }
 
         </>

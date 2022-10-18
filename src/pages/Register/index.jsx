@@ -9,6 +9,7 @@ const REGISTER_URL = '/api/auth/signup';
 
 
 export default function Register() {
+    const [file, setFile] = useState();
     const [success, setSuccess] = useState(false);
     const { toggleModals, modalState } = useContext(UserContext)
     const [validation, setValidation] = useState('');
@@ -22,14 +23,16 @@ export default function Register() {
         e.preventDefault()
 
         const v1 = USER_REGEX.test(inputs.current[0].value);
-        const v2 = PWD_REGEX.test(inputs.current[1].value);
+        const v2 = PWD_REGEX.test(inputs.current[4].value);
 
-        if ((inputs.current[1].value.length || inputs.current[2].value.length) < 8) {
+        if ((inputs.current[4].value.length || inputs.current[5].value.length) < 8) {
             setValidation("8 caractères minimum")
 
             return;
         }
-        else if (inputs.current[1].value.length !== inputs.current[2].value.length) {
+        else if (inputs.current[4].value !== inputs.current[3].value) {
+            console.log(inputs.current[4].value);
+            console.log(inputs.current[3].value);
             setValidation("les mots de passes ne correspondent pas")
 
             return;
@@ -39,8 +42,13 @@ export default function Register() {
             return;
         } try {
             const email = inputs.current[0].value;
-            const password = inputs.current[1].value;
-            const data = JSON.stringify({ email: email, password: password });
+            const prenom = inputs.current[1].value;
+            const nom = inputs.current[2].value;
+
+            const password = inputs.current[3].value;
+
+            const image = file;
+            const data = JSON.stringify({ email: email, password: password, prenom: prenom, nom: nom, image: image });
             console.log('ok');
             await axios.post(REGISTER_URL, { data })
                 .then(res => {
@@ -66,11 +74,17 @@ export default function Register() {
     return (
         <>
             {success ? (
-                <h1>Inscription réussit</h1>
-            ) : (
                 modalState.signUpModal && (
                     <div className='modal1'>
                         <div className='modal1-content'>
+                            <h1>Inscription réussit</h1>
+                            <button onClick={() => toggleModals('signIn')}>Se connecter?</button>
+                        </div>
+                    </div >)
+            ) : (
+                modalState.signUpModal && (
+                    <div className='modal12'>
+                        <div className='modal12-content'>
                             <h2>Inscription</h2>
                             <button onClick={() => toggleModals("close")} className='btn-close'>X</button>
                             <form onSubmit={handleForm}>
@@ -82,6 +96,26 @@ export default function Register() {
                                     name="email"
                                     required
                                     id="signUpEmail"
+                                />
+                                <br />
+                                <label htmlFor="signUpEmail"> Prénom : </label>
+                                <br />
+                                <input
+                                    ref={addInputs}
+                                    type="text"
+                                    name="prenom"
+                                    required
+                                    id="signUpPrenom"
+                                />
+                                <br />
+                                <label htmlFor="signUpEmail"> Nom : </label>
+                                <br />
+                                <input
+                                    ref={addInputs}
+                                    type="nom"
+                                    name="nom"
+                                    required
+                                    id="signUpNom"
                                 />
                                 <br />
                                 <label htmlFor="signUpPwd"> Mot de passe : </label>
@@ -102,6 +136,18 @@ export default function Register() {
                                     name="pwd"
                                     required
                                     id="repeatPwd"
+                                />
+                                <label htmlFor="repeatPwd">photo de profil</label>
+                                <br />
+                                <input
+                                    ref={addInputs}
+                                    type="file"
+                                    name="image"
+                                    accept='.jpg,.jpge,.png'
+                                    id="image"
+                                    onChange={
+                                        event => { setFile(event.target.files[0]); }
+                                    }
                                 />
                                 <p>{validation}</p>
                                 <button>Soumettre</button>

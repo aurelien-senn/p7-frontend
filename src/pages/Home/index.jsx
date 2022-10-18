@@ -46,28 +46,7 @@ function Home() {
 
     }, []);
 
-    function DeletePublication(id) {
-        const dataDel = id.x._id;
-        try {
-            axios.delete(`${REGISTER_URL}/${dataDel}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    "authorization": `${testauthHeader.authorization}`,
-                }
-            })
-                .then(res => {
-                    setValidationDel('Youpi');
-                    getPublication();
-                })
-        } catch (err) {
-            if (!err?.response) {
-                setValidationDel('erreur serveur');
-            } else {
-                setValidationDel('Echec de la connexion')
 
-            }
-        }
-    }
 
     async function LikeDislike(likeDislike, idLikeDislike, userLiked, userDisliked) {
         const idUser = JSON.parse(user).userId;
@@ -113,10 +92,15 @@ function Home() {
         toggleModals('updatePost')
 
     }
+    function DeletePublication(idPost) {
+
+        localStorage.setItem("updatePost", JSON.stringify(idPost));
+        toggleModals('delete')
+
+    }
 
     return (
         <>
-            <h1>Publications {validationDel}</h1>
             <div className="modal ">
                 {data.map((x) => (
                     <article key={x._id} className='modal-content'>
@@ -124,7 +108,7 @@ function Home() {
                         {(x.userId === localeStorageUser.userId || localeStorageUser.admin) ?
                             <>
                                 <button onClick={() => DeletePublication({ x })}>X</button>
-                                <button onClick={() => { localStorageUpdate(x) }} >modifier</button>
+                                <button onClick={() => { localStorageUpdate(x) }} >Editer</button>
                             </> : <></>}
                         < h2 > {x.title}  </h2>
                         <p className='truncate-overflow' >{x.description}</p>

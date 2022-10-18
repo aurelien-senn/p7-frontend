@@ -1,23 +1,21 @@
-.modal12 {
+.modal1 {
     position: fixed;
     z-index: 3;
     left: 0;
-    top: 100px;
     width: 100%;
-    height: 100%;
 
 
 }
 
 
-.modal12-content {
+.modal2-content {
     z-index: 4;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 20vw;
-    height: 40vw;
+    height: 60vw;
     border-radius: 20px;
     text-align: center;
     min-width: 13rem;
@@ -75,4 +73,8 @@ input {
     padding: 10px;
     border: none;
     border-radius: 10px;
+}
+
+.imgUpdate {
+    width: 15vw;
 }

@@ -8,7 +8,8 @@ export function UserContextProvider(props) {
         signUpModal: false,
         signInModal: false,
         newPostModal: false,
-        updatePostModal: false
+        updatePostModal: false,
+        deletePostModal: false,
 
     });
 
@@ -18,7 +19,8 @@ export function UserContextProvider(props) {
                 signUpModal: false,
                 signInModal: true,
                 newPostModal: false,
-                updatePostModal: false
+                updatePostModal: false,
+                deletePostModal: false,
 
             })
         }
@@ -27,7 +29,8 @@ export function UserContextProvider(props) {
                 signUpModal: true,
                 signInModal: false,
                 newPostModal: false,
-                updatePostModal: false
+                updatePostModal: false,
+                deletePostModal: false,
             })
         }
         if (modal == "newPost") {
@@ -35,7 +38,8 @@ export function UserContextProvider(props) {
                 signUpModal: false,
                 signInModal: false,
                 newPostModal: true,
-                updatePostModal: false
+                updatePostModal: false,
+                deletePostModal: false,
 
             })
         }
@@ -44,20 +48,34 @@ export function UserContextProvider(props) {
                 signUpModal: false,
                 signInModal: false,
                 newPostModal: false,
-                updatePostModal: true
+                updatePostModal: true,
+                deletePostModal: false,
 
             })
+        }
+        if (modal == "delete") {
+            setModelState({
+                signUpModal: false,
+                signInModal: false,
+                newPostModal: false,
+                updatePostModal: false,
+                deletePostModal: true,
+
+            })
+
         }
         if (modal == "close") {
             setModelState({
                 signUpModal: false,
                 signInModal: false,
                 newPostModal: false,
-                updatePostModal: false
+                updatePostModal: false,
+                deletePostModal: false,
 
             })
 
         }
+
     }
 
     return (
