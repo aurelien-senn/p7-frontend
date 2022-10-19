@@ -4,15 +4,32 @@ h1 {
     padding: 0;
 }
 
-.modal {
+.modalhome {
     position: fixed;
     z-index: 1;
     left: 0;
     top: 220px;
     width: 100%;
-    height: 100%;
-    overflow: scroll;
+    height: 75%;
     background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+}
+
+.modalhome-content {
+    position: relative;
+    z-index: 2;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50vw;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 13rem;
+    animation: heart-progress 500ms ease-in-out forwards;
+
+
 }
 
 .grey {
@@ -137,20 +154,7 @@ img {
 }
 
 
-.modal-content {
-    z-index: 2;
-    background-color: #fefefe;
-    margin: auto;
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50vw;
-    border-radius: 20px;
-    text-align: center;
-    min-width: 13rem;
-    animation: heart-progress 500ms ease-in-out forwards;
 
-}
 
 
 :root {

@@ -1,8 +1,8 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
 import axios from '../../api/axios';
+import { Link } from 'react-router-dom';
 
 
-import { UserContext } from '../../context/userContext'
 import './style.css'
 import authHeader from '../../services/auth-header'
 
@@ -10,75 +10,61 @@ import authHeader from '../../services/auth-header'
 const REGISTER_URL = '/api/stuff';
 
 export default function OnePost() {
-    const [success, setSuccess] = useState(false);
-    const { toggleModals, modalState } = useContext(UserContext)
+    const [data, setData] = useState([]);
+    let imagePost = true;
     const localePost = JSON.parse(localStorage.getItem('updatePost'));
     const testauthHeader = authHeader();
-    const [file, setFile] = useState();
-    const [imageUrl, setImageUrl] = useState("");
-    const inputs = useRef([])
-    const [validation, setValidation] = useState('');
-
-
-
-    const handleUpdate = async (e) => {
-        e.preventDefault()
+    const getOnePublication = () => {
         try {
 
-
-
-
-
-            await axios.get(`${REGISTER_URL}/${localePost._id}`, {
+            axios.get(`${REGISTER_URL}/${localePost.x._id}`, {
                 headers: {
-                    "Content-type": "multipart/form-data",
+                    'Content-Type': 'application/json',
                     "authorization": `${testauthHeader.authorization}`,
                 }
             })
-
                 .then(res => {
-                    setValidation('succes');
-                    window.location.reload();
+                    setData(res.data)
+
+
 
                 })
-
-
-            setSuccess(true);
-
         } catch (err) {
+
             if (!err?.response) {
-                setValidation('pas de reponse serveur');
-
+                console.log('erreur serveur');
             } else {
-                setValidation('Echec de la connexion')
-
+                console.log('Echec de la connexion');
             }
+
+
         }
-
-
+        if ((typeof data.imageUrl) === 'undefined') {
+            imagePost = false;
+        }
+        console.log(imagePost);
     }
 
+    useEffect(() => {
+        getOnePublication();
 
+    }, []);
 
     return (
         <>
-            {
-                success ? (
-                    <h1> Modification réussit</h1 >
-                ) : (
-                    modalState.onePostModal && (
-                        <div className='modal1'>
-                            <div className='modal2-content'>
 
-                                <h1>une seul publication</h1>
-                            </div>
-                        </div>
-
-                    ))
-            }
+            <div className='modalonepost'>
+                <div className='modalonepost-content'>
+                    <Link to="/">Retour</Link>
+                    <h2>{data.title}</h2>
+                    <p>{data.description}</p>
+                    {imagePost &&
+                        <img src={data.imageUrl} alt={data.title} />
+                    }
+                </div>
+            </div>
 
         </>
-
     );
 }
 

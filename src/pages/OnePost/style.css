@@ -1,4 +1,4 @@
-.modal12 {
+.modalonepost {
     position: fixed;
     z-index: 3;
     left: 0;
@@ -10,7 +10,7 @@
 }
 
 
-.modal12-content {
+.modalonepost-content {
     z-index: 4;
     background-color: #fefefe;
     margin: 15% auto;

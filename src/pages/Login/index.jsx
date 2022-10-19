@@ -19,11 +19,11 @@ export default function Login() {
     const handleForm = async (e) => {
         e.preventDefault(inputs.current)
         try {
-            console.log(inputs.current);
+
             const email = inputs.current[0].value;
             const password = inputs.current[1].value;
             const data = JSON.stringify({ email: email, password: password });
-            console.log(data);
+
             await axios.post(REGISTER_URL, { data })
                 .then(res => {
                     localStorage.setItem("user", JSON.stringify(res.data));

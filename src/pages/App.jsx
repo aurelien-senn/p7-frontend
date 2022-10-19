@@ -31,9 +31,10 @@ function App() {
         <Register />
         <UpdatePost />
         <Delete />
-        <OnePost />
+
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/onepost" element={<OnePost />} />
         </Routes>
       </section>
       <footer>
