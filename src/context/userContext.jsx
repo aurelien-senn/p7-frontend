@@ -11,6 +11,7 @@ export function UserContextProvider(props) {
         updatePostModal: false,
         deletePostModal: false,
 
+
     });
 
     const toggleModals = modal => {
@@ -31,6 +32,7 @@ export function UserContextProvider(props) {
                 newPostModal: false,
                 updatePostModal: false,
                 deletePostModal: false,
+
             })
         }
         if (modal == "newPost") {
@@ -64,6 +66,7 @@ export function UserContextProvider(props) {
             })
 
         }
+
         if (modal == "close") {
             setModelState({
                 signUpModal: false,
@@ -75,6 +78,7 @@ export function UserContextProvider(props) {
             })
 
         }
+
 
     }
 

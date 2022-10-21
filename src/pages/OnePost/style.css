@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+=======
+.modalonepost {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+
+>>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
 .modalonepost-content {
     z-index: 4;
     background-color: #fefefe;
@@ -53,4 +68,17 @@
     width: 10px;
     padding: 5px 20px 5px 10px;
     font-weight: 900;
+<<<<<<< HEAD
+=======
+}
+
+.btn-signin {
+    background-color: #888;
+}
+
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+>>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
 }

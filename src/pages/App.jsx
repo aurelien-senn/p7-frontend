@@ -3,6 +3,10 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Home/index';
 import Register from './Register/index';
 import Login from './Login/index';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
 import Navbar from './Navbar/index';
 import Post from './Post/index';
 import UpdatePost from './UpdatePost/index';
@@ -21,6 +25,7 @@ function App() {
         <Register />
         <UpdatePost />
         <Delete />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/onepost" element={<OnePost />} />

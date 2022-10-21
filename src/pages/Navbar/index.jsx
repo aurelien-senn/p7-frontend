@@ -9,7 +9,6 @@ export default function Navbar() {
 
     const { toggleModals } = useContext(UserContext)
     const testLocaleStorage = (typeof localStorage.getItem('user'));
-    console.log(localStorage.getItem('user'));
     let userCo;
     const logout = () => {
         localStorage.clear();
@@ -18,13 +17,11 @@ export default function Navbar() {
     };
     if ((typeof localStorage.getItem('user')) == 'object') {
         userCo = false
-        console.log(userCo + "false");
-        console.log(localStorage.getItem('user'));
+
 
     } else {
         userCo = true
-        console.log(userCo + "true");
-        console.log(typeof localStorage.getItem('user'));
+
 
     }
     return (
@@ -39,8 +36,13 @@ export default function Navbar() {
 
 
                         <>
+<<<<<<< HEAD
                             <li> <button className="btnNav" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
                             <li>  <button className="btnNav" onClick={logout}>Déconnexion</button></li>
+=======
+                            <li> <button className="btn" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
+                            <li>  <button className="btn" onClick={logout}>Déconnexion</button></li>
+>>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
                         </>
                         :
                         <>

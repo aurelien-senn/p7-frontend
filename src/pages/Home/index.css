@@ -33,6 +33,37 @@ h1 {
     padding: 0;
 }
 
+<<<<<<< HEAD
+=======
+.modalhome {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 220px;
+    width: 100%;
+    height: 75%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+}
+
+.modalhome-content {
+    position: relative;
+    z-index: 2;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50vw;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 13rem;
+    animation: heart-progress 500ms ease-in-out forwards;
+
+
+}
+
+>>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
 .grey {
     color: grey;
     font-size: 1.5rem;
@@ -178,9 +209,13 @@ h1 {
 }
 
 
+<<<<<<< HEAD
 .modal-content {
     animation: heart-progress 500ms ease-in-out forwards;
 }
+=======
+
+>>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
 
 
 :root {

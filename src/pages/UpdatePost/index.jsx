@@ -96,7 +96,8 @@ export default function UpdatePost() {
                                         type="text"
                                         name="descriptionUpdate"
                                         id="updateDescription"
-                                    >{localePost.description}</textarea>
+                                        defaultValue={localePost.description}
+                                    ></textarea>
                                     <br />
                                     {typeof localePost.imageUrl !== 'undefined' ? <><img alt={localePost.title} className="imgUpdate" src={localePost.imageUrl} /> </> : <></>}
                                     <br />
