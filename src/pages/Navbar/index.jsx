@@ -29,7 +29,9 @@ export default function Navbar() {
     }
     return (
         <div className='navBar'>
-            <img src="groupomania-logoplat.png" alt="Logo" className='imgLogo' />
+            <Link to="/">
+                <img src="groupomania-logoplat.png" alt="Logo" className='imgLogo' />
+            </Link>
             <nav>
 
                 <ul>
@@ -37,15 +39,13 @@ export default function Navbar() {
 
 
                         <>
-                            <li> <Link to="/Profil">Profil</Link> </li>
-                            <li> <Link to="/">Accueil</Link> </li>
-                            <li> <button className="btn" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
-                            <li>  <button className="btn" onClick={logout}>Déconnexion</button></li>
+                            <li> <button className="btnNav" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
+                            <li>  <button className="btnNav" onClick={logout}>Déconnexion</button></li>
                         </>
                         :
                         <>
-                            <li> <button className="btn" onClick={() => toggleModals('signUp')}>Inscription</button></li>
-                            <li> <button className="btn" onClick={() => toggleModals('signIn')}>Connexion</button></li>
+                            <li> <button className="btnNav" onClick={() => toggleModals('signUp')}>Inscription</button></li>
+                            <li> <button className="btnNav" onClick={() => toggleModals('signIn')}>Connexion</button></li>
                         </>
 
 

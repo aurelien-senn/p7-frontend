@@ -71,14 +71,14 @@ export default function Publication() {
         <>
             {
                 success ? (
-                    <div className='modal12'>
-                        <div className='modal12-content'>
+                    <div className=''>
+                        <div className='modalPost-content'>
                             <h1> Etes vous sure de vouloir supprimer?</h1 >
                         </div>
                     </div>
                 ) : (
                     modalState.newPostModal && (
-                        <div className='modal1'>
+                        <div className='post'>
                             <div className='modal1-content'>
                                 <h2>Publication</h2>
                                 <button className='btn-close' onClick={() => toggleModals("close")}>X</button>
@@ -118,7 +118,7 @@ export default function Publication() {
 
 
                                     <p >{validation}</p>
-                                    <button className='submit'>Soumettre</button>
+                                    <button className='btn-red'>Soumettre</button>
                                 </form>
                             </div>
                         </div>

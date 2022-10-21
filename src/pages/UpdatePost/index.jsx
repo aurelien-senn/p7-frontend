@@ -75,7 +75,7 @@ export default function UpdatePost() {
                     <h1> Modification réussit</h1 >
                 ) : (
                     modalState.updatePostModal && (
-                        <div className='modal1'>
+                        <div className=''>
                             <div className='modal2-content'>
                                 <button onClick={() => toggleModals("close")} className='btn-close'>X</button>
                                 <h2>modifier la publication</h2>
