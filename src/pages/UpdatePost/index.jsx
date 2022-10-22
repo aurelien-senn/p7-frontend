@@ -75,9 +75,9 @@ export default function UpdatePost() {
                     <h1> Modification réussit</h1 >
                 ) : (
                     modalState.updatePostModal && (
-                        <div className=''>
-                            <div className='modal2-content'>
-                                <button onClick={() => toggleModals("close")} className='btn-close'>X</button>
+                        <div className='modalUpdate'>
+                            <div className='modalUpdate-content'>
+                                <button onClick={() => toggleModals("close")} className='btn-close-update'>X</button>
                                 <h2>modifier la publication</h2>
                                 <form onSubmit={handleUpdate}>
                                     <label htmlFor="">titre</label>
@@ -114,7 +114,7 @@ export default function UpdatePost() {
                                             setFile(file);
                                         }} />
                                     <p>{validation}</p>
-                                    <button>Soumettre</button>
+                                    <button className='btn-red'>Soumettre</button>
                                 </form>
 
                             </div>

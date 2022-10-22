@@ -21,6 +21,7 @@ button:hover {
 
 
 .navBar {
+    max-width: 1400px;
     z-index: 9;
     display: flex;
     flex-direction: row;

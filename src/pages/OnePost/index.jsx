@@ -52,17 +52,17 @@ export default function OnePost() {
 
     return (
 
-        <div className='modal'>
-            <div className='modalonepost'>
-                <div className='modalonepost-content'>
-                    <Link to="/">Retour</Link>
-                    <h2>{data.title}</h2>
-                    <p>{data.description}</p>
-                    {imagePost &&
-                        <img src={data.imageUrl} alt={data.title} />
-                    }
-                </div>
+        <div className='onePost'>
+
+            <Link className='btn-red' to="/">Retour</Link>
+            <div className='onePostText'>
+                <h2>{data.title}</h2>
+                <p>{data.description}</p>
             </div>
+            {imagePost &&
+                <img className="imgOnePost" src={data.imageUrl} alt={data.title} />
+            }
+
         </div>
     );
 }

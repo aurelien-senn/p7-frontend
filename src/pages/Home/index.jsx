@@ -114,9 +114,11 @@ function Home() {
 
     return (
 
-        <div className='top'>
-            <div className="modal ">
-                {data.map((x) => (
+
+        <div className="modal ">
+
+            {data.map((x) => (
+                <>
                     <article key={x._id} className='modal-content'>
                         <div className='container'>
                             <div className='container-content-text'>
@@ -148,10 +150,10 @@ function Home() {
                                 {typeof x.imageUrl !== 'undefined' && <><img alt={x.title} src={x.imageUrl} className='image-post' /> </>}
                             </div>
                         </div>
-                    </article>
-                ))}
-            </div>
+                    </article></>
+            ))}
         </div>
+
 
     )
 }

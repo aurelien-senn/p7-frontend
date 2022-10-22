@@ -1,6 +1,7 @@
 body {
     margin: auto;
     font-family: 'Lato', sans-serif;
+    max-width: 1400px;
 }
 
 header {
@@ -22,7 +23,8 @@ header {
     padding: 0;
 }
 
-input {
+input,
+textarea {
     padding: 1vw;
     border: rgb(200, 198, 198) solid 1px;
     border-radius: 2px;
@@ -41,6 +43,8 @@ form {
     position: absolute;
     right: 5vw;
     width: 10vw;
+    text-decoration: none;
+    text-align: center;
 }
 
 .imgRegister {
@@ -49,6 +53,14 @@ form {
 
 }
 
+h1 {
+    color: #FD2D01;
+}
+
 h2 {
     margin-top: 0;
+}
+
+.modal {
+    margin-top: 10vw;
 }

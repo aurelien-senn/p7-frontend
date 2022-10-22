@@ -31,7 +31,7 @@ export default function Register() {
             return;
         }
         else if (inputs.current[4].value !== inputs.current[3].value) {
-            console.log(inputs.current[4].value);
+            console.log(inputs.current.value);
             console.log(inputs.current[3].value);
             setValidation("les mots de passes ne correspondent pas")
 
@@ -49,9 +49,7 @@ export default function Register() {
 
             const data = JSON.stringify({ email: email, password: password, prenom: prenom, nom: nom, image: image });
 
-            await axios.post(REGISTER_URL, { data })
-            console.log(image);
-            console.log(data.image);
+
             await axios.post(REGISTER_URL, data,
                 {
                     headers: {
