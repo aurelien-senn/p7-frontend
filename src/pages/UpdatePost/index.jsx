@@ -114,7 +114,7 @@ export default function UpdatePost() {
                                             setFile(file);
                                         }} />
                                     <p>{validation}</p>
-                                    <button className='btn-red'>Soumettre</button>
+                                    <button className='btn-update'>Valider</button>
                                 </form>
 
                             </div>

@@ -52,7 +52,7 @@ export default function OnePost() {
 
     return (
 
-        <div className='onePost'>
+        <div className='onePost '>
 
             <Link className='btn-red' to="/">Retour</Link>
             <div className='onePostText'>

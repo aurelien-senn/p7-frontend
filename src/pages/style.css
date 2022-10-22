@@ -1,7 +1,7 @@
 body {
     margin: auto;
     font-family: 'Lato', sans-serif;
-    max-width: 1400px;
+
 }
 
 header {
@@ -63,4 +63,11 @@ h2 {
 
 .modal {
     margin-top: 10vw;
+}
+
+@media screen and (max-width: 768px) {
+    .modal {
+        margin-top: 150px;
+    }
+
 }

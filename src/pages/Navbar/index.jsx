@@ -26,21 +26,19 @@ export default function Navbar() {
     }
     return (
         <div className='navBar'>
+
             <Link to="/">
                 <img src="groupomania-logoplat.png" alt="Logo" className='imgLogo' />
             </Link>
+
+
             <nav>
 
                 <ul>
                     {userCo ?
-
-
                         <>
-
                             <li> <button className="btnNav" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
                             <li>  <button className="btnNav" onClick={logout}>Déconnexion</button></li>
-
-
                         </>
                         :
                         <>
@@ -54,6 +52,7 @@ export default function Navbar() {
 
                 </ul>
             </nav>
+
         </div>
     );
 }

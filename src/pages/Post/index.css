@@ -83,3 +83,31 @@
 .btn-signin {
     background-color: #888;
 }
+
+@media screen and (max-width: 992px) {
+
+    .modalPost-content input,
+    .modalPost-content textarea {
+        width: 77vw;
+
+
+    }
+
+    .modalPost-content {
+
+        width: 80vw;
+    }
+
+    .imgUpdate {
+        max-height: 60vw;
+        max-width: 60vw;
+
+
+    }
+
+    .btn-close-post {
+        right: 2.5vw;
+    }
+
+
+}

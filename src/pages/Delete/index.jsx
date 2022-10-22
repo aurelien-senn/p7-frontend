@@ -50,9 +50,10 @@ function Delete() {
                 <div className='modalDelete'>
                     <div className='modalDelete-content'>
                         <p>Etes-vous sûre de vouloir supprimer votre publication?</p>
-                        <button className="buttonDelete" onClick={() => DeletePublication()}>oui</button>
-                        <button className="buttonDelete" onClick={() => toggleModals("close")}>annuler</button>
-
+                        <div className='flex'>
+                            <div ><button className="buttonDelete" onClick={() => DeletePublication()}>oui</button></div>
+                            <div > <button className="buttonDelete" onClick={() => toggleModals("close")}>annuler</button></div>
+                        </div>
                     </div>
                 </div>)}
 

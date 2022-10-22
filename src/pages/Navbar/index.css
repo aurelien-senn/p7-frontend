@@ -21,7 +21,7 @@ button:hover {
 
 
 .navBar {
-    max-width: 1400px;
+
     z-index: 9;
     display: flex;
     flex-direction: row;
@@ -29,11 +29,14 @@ button:hover {
     background-color: white;
     position: fixed;
     top: 0;
-    width: 100vw;
+    width: 98vw;
+
 }
 
 ul {
     display: flex;
+    padding: 0;
+
 
 }
 
@@ -43,21 +46,43 @@ li {
 
 .imgLogo {
     width: 30vw;
-    max-width: 700px;
-    vertical-align: middle;
+
+    margin: 2vw 0 0 2vw;
 
 
 }
 
-@media only screen and (max-width: 1024px) {
-    ul {
-        vertical-align: middle;
+@media only screen and (max-width: 992px) {
+    .btnNav {
+        width: 20vw;
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navBar {
+        flex-direction: column;
     }
 
-    li,
-    button,
-    a {
-        vertical-align: middle;
-        margin: 0 .2vw .2vh .2vw;
+    .imgLogo {
+        width: 300px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
+
+    .navBar nav {
+
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btnNav {
+        display: block;
+        width: 40vw;
+    }
+
+
 }

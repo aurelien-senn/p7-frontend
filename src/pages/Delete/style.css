@@ -15,6 +15,7 @@
 
 
 .modalDelete {
+
     font-size: 1.5rem;
     z-index: 10;
     position: fixed;
@@ -67,10 +68,11 @@
 
     background-color: #4E5166;
     color: white;
-    width: 5vw;
-    height: 2vw;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    width: 87px;
+    height: 40px;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    font-size: 1.5rem;
 }
 
 .buttonDelete:hover {
@@ -79,4 +81,27 @@
 
 .imgUpdate {
     width: 15vw;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around
+}
+
+@media screen and (max-width: 768px) {
+    .modalDelete-content {
+        width: 60vw;
+    }
+
+    .buttonDelete {
+        display: block;
+        margin: 0;
+        width: 100px;
+
+
+    }
+
+
+
+
 }

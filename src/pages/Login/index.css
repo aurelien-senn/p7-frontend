@@ -13,6 +13,12 @@
 
 }
 
+.imgRegister {
+    display: block;
+    width: 40vw;
+
+}
+
 .login {
     display: flex;
     animation: heart-progress 500ms ease-in-out forwards;
@@ -66,4 +72,47 @@
     position: absolute;
     bottom: 5vw;
     width: 10vw;
+}
+
+@media screen and (max-width: 768px) {
+    .login {
+        margin-top: 150px;
+    }
+
+    .imgRegister {
+        visibility: hidden;
+    }
+
+    .containerImgLogin {
+        width: 1px;
+    }
+
+    .modalLogin-content {
+        display: block;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .modalLogin-content h2 {
+        text-align: center;
+    }
+
+    #signInPwd,
+    #signInEmail {
+        display: block;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .modalLogin-content .btn-login {
+        right: 20vw;
+        width: 20vw;
+    }
+
+    .login {
+        margin: 100px 0 0 0;
+    }
+
 }

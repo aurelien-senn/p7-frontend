@@ -69,3 +69,50 @@
 .btn-signin {
     background-color: #888;
 }
+
+@media screen and (max-width: 768px) {
+    .register {
+        margin-top: 150px;
+    }
+
+    .imgRegister {
+        visibility: hidden;
+    }
+
+    .containerImgRegister {
+        width: 1px;
+    }
+
+    .modalRegister-content {
+        display: block;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .modalRegister-content h2 {
+        text-align: center;
+    }
+
+    #signUpPrenom,
+    #signUpNom,
+    #signUpEmail,
+    #signUpPwd,
+    #repeatPwd,
+    #image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vw;
+    }
+
+    .modalRegister-content.btn-login {
+        right: 20vw;
+        width: 20vw;
+    }
+
+    .register {
+        margin: 150px 0 0 0;
+    }
+
+}

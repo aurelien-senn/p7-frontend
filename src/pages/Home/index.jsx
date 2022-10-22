@@ -142,7 +142,7 @@ function Home() {
                                 </div>
                                 <div className='truncate-overflow'>
                                     < h2 > {x.title}  </h2>
-                                    <p className='truncate-overflow' >{x.description}</p>
+                                    <p  >{x.description}</p>
                                 </div>
                                 <button className='btn-red-home' onClick={() => OnePost({ x })}>voir plus ...</button>
                             </div>

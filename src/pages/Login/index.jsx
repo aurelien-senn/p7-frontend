@@ -79,7 +79,7 @@ export default function Login() {
                             </form>
                             <button onClick={() => toggleModals('signUp')}>S'inscrire ?</button>
                         </div>
-                        <div>
+                        <div className='containerImgLogin'>
 
                             <img className='imgRegister' src="image-accueil.jpg" alt="photo du siege social" />
                         </div>

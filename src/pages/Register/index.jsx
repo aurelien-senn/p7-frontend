@@ -172,7 +172,7 @@ export default function Register() {
                             </form>
                         </div>
                         <div>
-                            <div>
+                            <div className='containerImgRegister'>
                                 <img className='imgRegister' src="image-accueil.jpg" alt="photo du siege social" />
                             </div>
                         </div>

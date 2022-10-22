@@ -24,3 +24,10 @@
     font-size: 2rem;
     color: #4E5166;
 }
+
+@media screen and (max-width: 768px) {
+    .onePost {
+        margin-top: 150px;
+    }
+
+}
