@@ -102,20 +102,19 @@ function Home() {
     }
     function OnePost(idPost) {
         localStorage.setItem("updatePost", JSON.stringify(idPost))
-<<<<<<< HEAD
-=======
+
 
         navigate("/onepost");
 
     }
->>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
 
-        navigate("/onepost");
 
-    }
+
+
+
     return (
-<<<<<<< HEAD
-        <><div className='top'>
+
+        <div className='top'>
             <div className="modal ">
                 {data.map((x) => (
                     <article key={x._id} className='modal-content'>
@@ -149,31 +148,11 @@ function Home() {
                                 {typeof x.imageUrl !== 'undefined' && <><img alt={x.title} src={x.imageUrl} className='image-post' /> </>}
                             </div>
                         </div>
-=======
-        <>
-            <div className="modalhome ">
-                {data.map((x) => (
-                    <article key={x._id} className='modalhome-content'>
-                        {/* affichage si admin ou auteur */}
-                        {(x.userId === localeStorageUser.userId || localeStorageUser.admin) &&
-                            <>
-                                <button onClick={() => DeletePublication({ x })}>X</button>
-                                <button onClick={() => { localStorageUpdate(x) }} >Editer</button>
-                            </>}
-                        < h2 > {x.title}  </h2>
-                        <p className='truncate-overflow' >{x.description}</p>
-                        <button onClick={() => OnePost({ x })}>voir plus</button>
-                        {/* test si deja liker */}
-                        <button className={(x.usersLiked.indexOf(localeStorageUser.userId) !== -1) ? 'red' : 'grey'} onClick={() => LikeDislike('like', x, x.usersLiked, x.usersDisliked)}>like: {x.likes} </button>
-                        {/* test su deja duskijer */}
-                        <button className={(x.usersDisliked.indexOf(localeStorageUser.userId) !== -1) ? 'red' : 'grey'} onClick={() => LikeDislike('dislike', x, x.usersLiked, x.usersDisliked)}>dislike:{x.dislikes}</button>
-                        {typeof x.imageUrl !== 'undefined' && <><img alt={x.title} src={x.imageUrl} /> </>}
->>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
                     </article>
-                ))
-                }
-            </div >
+                ))}
+            </div>
         </div>
-        </>)
+
+    )
 }
 export default Home;

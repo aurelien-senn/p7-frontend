@@ -36,13 +36,11 @@ export default function Navbar() {
 
 
                         <>
-<<<<<<< HEAD
+
                             <li> <button className="btnNav" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
                             <li>  <button className="btnNav" onClick={logout}>Déconnexion</button></li>
-=======
-                            <li> <button className="btn" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
-                            <li>  <button className="btn" onClick={logout}>Déconnexion</button></li>
->>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
+
+
                         </>
                         :
                         <>

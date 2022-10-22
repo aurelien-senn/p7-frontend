@@ -25,7 +25,6 @@ button:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
     background-color: white;
     position: fixed;
     top: 0;

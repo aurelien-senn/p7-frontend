@@ -51,13 +51,9 @@ export default function OnePost() {
     }, []);
 
     return (
-        <>
 
-<<<<<<< HEAD
-            <div className='modal'>
-=======
+        <div className='modal'>
             <div className='modalonepost'>
->>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
                 <div className='modalonepost-content'>
                     <Link to="/">Retour</Link>
                     <h2>{data.title}</h2>
@@ -67,8 +63,7 @@ export default function OnePost() {
                     }
                 </div>
             </div>
-
-        </>
+        </div>
     );
 }
 

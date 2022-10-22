@@ -33,8 +33,7 @@ h1 {
     padding: 0;
 }
 
-<<<<<<< HEAD
-=======
+
 .modalhome {
     position: fixed;
     z-index: 1;
@@ -63,7 +62,7 @@ h1 {
 
 }
 
->>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
+
 .grey {
     color: grey;
     font-size: 1.5rem;
@@ -209,14 +208,10 @@ h1 {
 }
 
 
-<<<<<<< HEAD
+
 .modal-content {
     animation: heart-progress 500ms ease-in-out forwards;
 }
-=======
-
->>>>>>> 293fe25a2f73fdad5f579f4c5108d6828ec01618
-
 
 :root {
     --lh: 1.4rem;
