@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
 import axios from '../../api/axios';
 
 
@@ -10,6 +10,7 @@ import authHeader from '../../services/auth-header'
 const REGISTER_URL = '/api/stuff';
 
 export default function UpdatePost() {
+    const [fileDataURL, setFileDataURL] = useState(null);
     const [success, setSuccess] = useState(false);
     const { toggleModals, modalState } = useContext(UserContext)
     const localePost = JSON.parse(localStorage.getItem('updatePost'));
@@ -66,7 +67,35 @@ export default function UpdatePost() {
 
     }
 
+    const changeHandler = (e) => {
+        const imageMimeType = /image\/(png|jpg|jpeg)/i;
+        const file = e.target.files[0];
+        if (!file.type.match(imageMimeType)) {
+            alert("Image mime type is not valid");
+            return;
+        }
+        setFile(file);
+    }
+    useEffect(() => {
+        let fileReader, isCancel = false;
+        if (file) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const { result } = e.target;
+                if (result && !isCancel) {
+                    setFileDataURL(result)
+                }
+            }
+            fileReader.readAsDataURL(file);
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        }
 
+    }, [file]);
 
     return (
         <>
@@ -98,7 +127,13 @@ export default function UpdatePost() {
                                         id="updateDescription"
                                     >{localePost.description}</textarea>
                                     <br />
-                                    {typeof localePost.imageUrl !== 'undefined' ? <><img alt={localePost.title} className="imgUpdate" src={localePost.imageUrl} /> </> : <></>}
+                                    {fileDataURL ? (
+                                        <p className="img-preview-wrapper">
+                                            {
+                                                <img src={fileDataURL} alt="preview" className='imgPreview' />
+                                            }
+                                        </p>) : (typeof localePost.imageUrl !== 'undefined' && (
+                                            <><img alt={localePost.title} className="imgUpdate" src={localePost.imageUrl} /> </>))}
                                     <br />
                                     <label htmlFor="">image</label>
                                     <br />
@@ -108,10 +143,7 @@ export default function UpdatePost() {
                                         name="imageUpdate"
                                         id="updateImage"
                                         accept='.jpg,.jpge,.png'
-                                        onChange={event => {
-                                            const file = event.target.files[0];
-                                            setFile(file);
-                                        }} />
+                                        onChange={changeHandler} />
                                     <p>{validation}</p>
                                     <button className='btn-update'>Soumettre</button>
                                 </form>

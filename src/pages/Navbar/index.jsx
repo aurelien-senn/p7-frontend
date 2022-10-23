@@ -1,12 +1,15 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 import './index.css'
+import axios from '../../api/axios';
+import authHeader from '../../services/auth-header'
 
-
+const REGISTER_URL = '/api/auth/navbar';
 export default function Navbar() {
-
+    const testauthHeader = authHeader();
+    const [dataNavbar, setDataNavbar] = useState([]);
     const { toggleModals } = useContext(UserContext)
     const testLocaleStorage = (typeof localStorage.getItem('user'));
     let userCo;
@@ -24,6 +27,31 @@ export default function Navbar() {
 
 
     }
+    const getName = () => {
+        try {
+            axios.get(REGISTER_URL, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "authorization": `${testauthHeader.authorization}`,
+                }
+            })
+                .then(res => {
+                    setDataNavbar(res.data)
+                    console.log(dataNavbar.nom);
+                })
+        } catch (err) {
+
+            if (!err?.response) {
+                console.log('erreur serveur');
+            } else {
+                console.log('Echec de la connexion');
+            }
+        }
+    }
+    useEffect(() => {
+        getName();
+
+    }, []);
     return (
         <div className='navBar'>
 
@@ -36,6 +64,8 @@ export default function Navbar() {
                 <ul>
                     {userCo ?
                         <>
+                            <p>Bonjour {dataNavbar.prenom} {dataNavbar.nom}</p>
+                            {((typeof dataNavbar.imageUrl) == 'undefined') && <img src={dataNavbar.imageUrl} alt="photo de profil" />}
                             <li> <button className="btnNav" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
                             <li>  <button className="btnNav" onClick={logout}>Déconnexion</button></li>
                         </>

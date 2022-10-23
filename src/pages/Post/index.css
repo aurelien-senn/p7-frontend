@@ -4,7 +4,7 @@
     margin: auto;
     background-color: #fefefe;
     width: 30vw;
-    height: 20vw;
+
     border: 0;
     min-width: 13rem;
     min-height: 20rem;
@@ -84,6 +84,7 @@
     background-color: #888;
 }
 
+
 @media screen and (max-width: 992px) {
 
     .modalPost-content input,
@@ -110,4 +111,15 @@
     }
 
 
+}
+
+.img-preview-wrapper {
+    width: 30vw;
+    height: 20vw;
+}
+
+.imgPreview {
+    width: 30vw;
+    height: 20vw;
+    overflow: hidden;
 }

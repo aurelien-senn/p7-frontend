@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
 import axios from '../../api/axios';
 import { UserContext } from '../../context/userContext'
 import './index.css'
@@ -8,12 +8,12 @@ import authHeader from '../../services/auth-header'
 const REGISTER_URL = '/api/stuff';
 
 export default function Publication() {
-
+    const [fileDataURL, setFileDataURL] = useState(null);
     const [success, setSuccess] = useState(false);
     const { toggleModals, modalState } = useContext(UserContext)
     const [validation, setValidation] = useState('');
 
-    const [file, setFile] = useState();
+    const [file, setFile] = useState(null);
     const inputs = useRef([])
 
     const testauthHeader = authHeader();
@@ -63,7 +63,35 @@ export default function Publication() {
         }
     }
 
+    const changeHandler = (e) => {
+        const imageMimeType = /image\/(png|jpg|jpeg)/i;
+        const file = e.target.files[0];
+        if (!file.type.match(imageMimeType)) {
+            alert("Image mime type is not valid");
+            return;
+        }
+        setFile(file);
+    }
+    useEffect(() => {
+        let fileReader, isCancel = false;
+        if (file) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const { result } = e.target;
+                if (result && !isCancel) {
+                    setFileDataURL(result)
+                }
+            }
+            fileReader.readAsDataURL(file);
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        }
 
+    }, [file]);
 
 
 
@@ -111,17 +139,24 @@ export default function Publication() {
                                         name="image"
                                         id="postImage"
                                         accept='.jpg,.jpge,.png'
-                                        onChange={
-                                            event => { setFile(event.target.files[0]); }
-                                        }
+                                        onChange={changeHandler}
+
                                     />
 
-
+                                    {fileDataURL &&
+                                        <p className="img-preview-wrapper">
+                                            {
+                                                <img src={fileDataURL} alt="preview" className='imgPreview' />
+                                            }
+                                        </p>}
                                     <p >{validation}</p>
                                     <button className='btn-red'>Soumettre</button>
                                 </form>
+
                             </div>
+
                         </div>
+
                     )
                 )
             }

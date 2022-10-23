@@ -5,6 +5,8 @@ import './index.css'
 import authHeader from '../../services/auth-header'
 import { useNavigate } from 'react-router-dom'
 
+import * as moment from 'moment';
+import 'moment/locale/fr';
 
 const REGISTER_URL = '/api/stuff';
 
@@ -132,8 +134,8 @@ function Home() {
                                     </button>
                                 </div>
                                 <div className='truncate-overflow'>
-
-                                    < h2 > {x.title}  </h2>
+                                    <p>  {moment(x.date).fromNow()}</p>
+                                    < h2 > {x.title} </h2>
                                     <p className='truncate-overflow' >{x.description}</p>
                                 </div>
                                 <button className='btn-red-home' onClick={() => OnePost({ x })}>voir plus</button>
