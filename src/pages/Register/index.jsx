@@ -21,11 +21,12 @@ export default function Register() {
     }
     const handleForm = async (e) => {
         e.preventDefault()
-
+        console.log(inputs.current[4].value.length);
+        console.log(inputs.current[5].value.length);
         const v1 = USER_REGEX.test(inputs.current[0].value);
         const v2 = PWD_REGEX.test(inputs.current[4].value);
 
-        if ((inputs.current[4].value.length || inputs.current[5].value.length) < 8) {
+        if ((inputs.current[4].value.length || inputs.current[3].value.length) < 8) {
             setValidation("8 caractères minimum")
 
             return;
@@ -75,18 +76,21 @@ export default function Register() {
         <>
             {success ? (
                 modalState.signUpModal && (
-                    <div className='modal1'>
-                        <div className='modal1-content'>
+                    <div className='register'>
+                        <div className='modalRegister-content'>
                             <h1>Inscription réussit</h1>
-                            <button onClick={() => toggleModals('signIn')}>Se connecter?</button>
+                            <button onClick={() => toggleModals('signIn')} className='btn-red'>Se connecter?</button>
+
+                        </div>
+                        <div className='containerImgRegister'>
+                            <img className='imgRegister' src="image-accueil.jpg" alt="photo du siege social" />
                         </div>
                     </div >)
             ) : (
                 modalState.signUpModal && (
-                    <div className='modal12'>
-                        <div className='modal12-content'>
+                    <div className='register'>
+                        <div className='modalRegister-content'>
                             <h2>Inscription</h2>
-                            <button onClick={() => toggleModals("close")} className='btn-close'>X</button>
                             <form onSubmit={handleForm}>
                                 <label htmlFor="signUpEmail"> Email : </label>
                                 <br />
@@ -137,6 +141,7 @@ export default function Register() {
                                     required
                                     id="repeatPwd"
                                 />
+                                <br />
                                 <label htmlFor="repeatPwd">photo de profil</label>
                                 <br />
                                 <input
@@ -150,9 +155,12 @@ export default function Register() {
                                     }
                                 />
                                 <p>{validation}</p>
-                                <button>Soumettre</button>
+                                <button className='btn-red'>Soumettre</button>
 
                             </form>
+                        </div>
+                        <div className='containerImgRegister'>
+                            <img className='imgRegister' src="image-accueil.jpg" alt="photo du siege social" />
                         </div>
                     </div>
                 )

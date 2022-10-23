@@ -1,0 +1,54 @@
+.imgOnePost {
+    margin: auto;
+    display: block;
+    width: 30vw;
+    right: 1vw;
+    top: 2vw;
+
+}
+
+.onePost {
+    border-radius: 5px;
+    position: relative;
+    margin: 10vw 2vw 0 2vw;
+    box-shadow: -2px 2px 20px grey;
+    padding: 2vw;
+}
+
+.onePostText {
+
+    padding: 1vw 5vw 0 5vw;
+}
+
+.onePostText h2 {
+    font-size: 2rem;
+    color: #4E5166;
+}
+
+.btn-redOnePost {
+    background-color: #FD2D01;
+    padding: 4px;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    right: 5vw;
+    width: 10vw;
+    text-decoration: none;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .onePost {
+        margin-top: 150px;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+
+
+    .btn-redOnePost {
+        width: 90px;
+        height: 25px;
+    }
+}

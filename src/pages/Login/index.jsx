@@ -44,13 +44,21 @@ export default function Login() {
     return (
         <>
             {success ? (
-                <h1>Connexion réussit</h1>
+                <div className='login'>
+                    <div className='modalLogin-content'>
+                        <h1>Connexion réussit</h1>
+                    </div>
+                    <div className='containerImgLogin'>
+
+                        <img className='imgRegister' src="image-accueil.jpg" alt="photo du siege social" />
+                    </div>
+                </div>
             ) : (
                 modalState.signInModal && (
-                    <div className='modal1'>
-                        <div className='modal1-content'>
+                    <div className='login'>
+                        <div className='modalLogin-content'>
                             <h2>Connexion</h2>
-                            <button className='btn-close' onClick={() => toggleModals("close")}>X</button>
+
                             <form onSubmit={handleForm}>
                                 <label htmlFor="signInEmail"> Email :</label>
                                 <br />
@@ -73,9 +81,13 @@ export default function Login() {
                                 />
 
                                 <p>{validation}</p>
-                                <button>Soumettre</button>
+                                <button className='btn-login'>Soumettre</button>
                             </form>
                             <button onClick={() => toggleModals('signUp')}>S'inscrire ?</button>
+                        </div>
+                        <div className='containerImgLogin'>
+
+                            <img className='imgRegister' src="image-accueil.jpg" alt="photo du siege social" />
                         </div>
                     </div>
                 )

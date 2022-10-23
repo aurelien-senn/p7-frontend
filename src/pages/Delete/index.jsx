@@ -45,21 +45,21 @@ function Delete() {
 
     return (
         <>
-            {success ? (
-                <h1> Suppression reussit réussit</h1 >
-            ) : (modalState.deletePostModal && (
+            {modalState.deletePostModal && (
 
-                <div className='modal1'>
-                    <div className='modal2-content'>
+                <div className='modalDelete'>
+                    <div className='modalDelete-content'>
                         <p>Etes-vous sûre de vouloir supprimer votre publication?</p>
-                        <button onClick={() => DeletePublication()}>oui</button>
-                        <button onClick={() => toggleModals("close")}>annuler</button>
-
+                        <div className='flex'>
+                            <div ><button className="buttonDelete" onClick={() => DeletePublication()}>oui</button></div>
+                            <div > <button className="buttonDelete" onClick={() => toggleModals("close")}>annuler</button></div>
+                        </div>
                     </div>
-                </div>))}
+                </div>)}
 
 
         </>
+
 
     )
 
