@@ -4,8 +4,12 @@ import { UserContext } from '../../context/userContext'
 import './index.css'
 import authHeader from '../../services/auth-header'
 import { useNavigate } from 'react-router-dom'
+import ReactTimeAgo from 'react-time-ago'
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/fr.json'
 
 const REGISTER_URL = '/api/stuff';
+TimeAgo.addDefaultLocale(en)
 
 function Home() {
 
@@ -141,6 +145,7 @@ function Home() {
                                     </button>
                                 </div>
                                 <div className='truncate-overflow'>
+                                    <p><ReactTimeAgo date={x.date} locale="en-US" /></p>
                                     < h2 > {x.title}  </h2>
                                     <p  >{x.description}</p>
                                 </div>

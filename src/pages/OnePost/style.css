@@ -25,9 +25,30 @@
     color: #4E5166;
 }
 
+.btn-redOnePost {
+    background-color: #FD2D01;
+    padding: 4px;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    right: 5vw;
+    width: 10vw;
+    text-decoration: none;
+    text-align: center;
+}
+
 @media screen and (max-width: 768px) {
     .onePost {
         margin-top: 150px;
     }
 
+}
+
+@media screen and (max-width: 992px) {
+
+
+    .btn-redOnePost {
+        width: 90px;
+        height: 25px;
+    }
 }

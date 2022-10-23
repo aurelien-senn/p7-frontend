@@ -7,9 +7,13 @@ import './style.css'
 import authHeader from '../../services/auth-header'
 
 
+
+
 const REGISTER_URL = '/api/stuff';
 
+
 export default function OnePost() {
+
     const [data, setData] = useState([]);
     let imagePost = true;
     const localePost = JSON.parse(localStorage.getItem('updatePost'));
@@ -26,7 +30,7 @@ export default function OnePost() {
                 .then(res => {
                     setData(res.data)
 
-
+                    console.log(data);
 
                 })
         } catch (err) {
@@ -54,13 +58,15 @@ export default function OnePost() {
 
         <div className='onePost '>
 
-            <Link className='btn-red' to="/">Retour</Link>
+            <Link className='btn-redOnePost' to="/">Retour</Link>
             <div className='onePostText'>
+
+
                 <h2>{data.title}</h2>
                 <p>{data.description}</p>
             </div>
             {imagePost &&
-                <img className="imgOnePost" src={data.imageUrl} alt={data.title} />
+                <img className="imgOnePost " src={data.imageUrl} alt={data.title} />
             }
 
         </div>
