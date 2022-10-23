@@ -10,26 +10,18 @@ import Delete from './Delete/index';
 import OnePost from './OnePost/index';
 import './style.css'
 
-const Header = styled.header`
-color: red;
-text-align:center;
-padding:10px;
-a{
-  padding:5px;
-}
-`
+
 function App() {
   return (
     <>
-      <Header >
-        <Navbar />
-      </Header >
+      <Navbar />
       <section>
         <Post />
         <Login />
         <Register />
         <UpdatePost />
         <Delete />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/onepost" element={<OnePost />} />

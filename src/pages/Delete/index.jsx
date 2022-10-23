@@ -10,7 +10,7 @@ const REGISTER_URL = '/api/stuff';
 
 
 function Delete() {
-    console.log('test');
+
     const [success, setSuccess] = useState(false);
     const [validationDel, setValidationDel] = useState('');
     const testauthHeader = authHeader();
@@ -18,7 +18,7 @@ function Delete() {
 
     function DeletePublication() {
         const dataDel = JSON.parse(localStorage.getItem('updatePost'));
-        console.log(dataDel.x._id);
+
         try {
             axios.delete(`${REGISTER_URL}/${dataDel.x._id}`, {
                 headers: {
