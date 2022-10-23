@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 
 import './style.css'
 import authHeader from '../../services/auth-header'
-
+import * as moment from 'moment';
+import 'moment/locale/fr';
 
 const REGISTER_URL = '/api/stuff';
 
@@ -56,7 +57,7 @@ export default function OnePost() {
             <Link className='btn-redOnePost' to="/">Retour</Link>
             <div className='onePostText'>
 
-
+                <p>  {moment(data.date).fromNow()}</p>
                 <h2>{data.title}</h2>
                 <p>{data.description}</p>
             </div>
