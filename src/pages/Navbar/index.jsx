@@ -37,7 +37,7 @@ export default function Navbar() {
             })
                 .then(res => {
                     setDataNavbar(res.data)
-                    console.log(dataNavbar.nom);
+                    console.log(dataNavbar.imageUrl);
                 })
         } catch (err) {
 
@@ -58,30 +58,38 @@ export default function Navbar() {
             <Link to="/">
                 <img src="groupomania-logoplat.png" alt="Logo" className='imgLogo' />
             </Link>
+            <div className='container-imgNavBar'>
+                <img src={dataNavbar.imageUrl} className="imgNavBar" alt="photo de profil" />
+                <p>Bonjour {dataNavbar.prenom} {dataNavbar.nom}</p>
+            </div>
+            {userCo ?
+                <nav>
 
-            <nav>
-
-                <ul>
-                    {userCo ?
-                        <>
-                            <p>Bonjour {dataNavbar.prenom} {dataNavbar.nom}</p>
-                            {((typeof dataNavbar.imageUrl) == 'undefined') && <img src={dataNavbar.imageUrl} alt="photo de profil" />}
-                            <li> <button className="btnNav" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
-                            <li>  <button className="btnNav" onClick={logout}>Déconnexion</button></li>
-                        </>
-                        :
-                        <>
-                            <li> <button className="btnNav" onClick={() => toggleModals('signUp')}>Inscription</button></li>
-                            <li> <button className="btnNav" onClick={() => toggleModals('signIn')}>Connexion</button></li>
-                        </>
+                    <ul>
 
 
-                    }
+                        <li> <button className="btnNav" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
+                        <li>  <button className="btnNav" onClick={logout}>Déconnexion</button></li>
+                    </ul>
+                </nav>
+
+                :
+                <nav>
+
+                    <ul>
 
 
-                </ul>
-            </nav>
+                        <li> <button className="btnNav" onClick={() => toggleModals('signUp')}>Inscription</button></li>
+                        <li> <button className="btnNav" onClick={() => toggleModals('signIn')}>Connexion</button></li>
 
-        </div>
+                    </ul>
+                </nav>
+
+            }
+
+
+
+
+        </div >
     );
 }
