@@ -15,7 +15,9 @@ function Delete() {
     const [validationDel, setValidationDel] = useState('');
     const testauthHeader = authHeader();
     const { toggleModals, modalState } = useContext(UserContext)
-
+    // delete DeletePublication
+    // @param {string} id of publication
+    // @return {Boolean} success
     function DeletePublication() {
         const dataDel = JSON.parse(localStorage.getItem('updatePost'));
 

@@ -24,9 +24,9 @@
     animation: heart-progress 500ms ease-in-out forwards;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 100px;
+    padding-top: 200px;
     width: 90vw;
-    margin-top: 40px;
+
 
 }
 
@@ -78,6 +78,7 @@
 @media screen and (max-width: 768px) {
     .login {
         margin-top: 150px;
+        padding-top: 100px;
     }
 
     .imgRegister {
@@ -108,7 +109,7 @@
     }
 
     .modalLogin-content .btn-login {
-        right: 20vw;
+        right: 35vw;
         width: 20vw;
     }
 

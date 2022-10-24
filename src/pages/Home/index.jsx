@@ -19,6 +19,9 @@ function Home() {
     const [validationDel, setValidationDel] = useState('ok');
     const localeStorageUser = JSON.parse(localStorage.getItem("user"));
     const navigate = useNavigate();
+    // view all publication
+    // @param {string} token 
+    // // @return {array} publcations
     const getPublication = () => {
         try {
 
@@ -49,9 +52,15 @@ function Home() {
     useEffect(() => {
         getPublication();
 
+
     }, []);
 
-
+    // change like or dislike
+    // @param {string} id publication 
+    // @param {string} id user
+    // @param {number}  like
+    // @param {number} dislike
+    // // @return {number} number of like or dislike
 
     async function LikeDislike(likeDislike, idLikeDislike, userLiked, userDisliked) {
         const idUser = JSON.parse(user).userId;
@@ -91,18 +100,27 @@ function Home() {
         }
 
     }
+
+    // view modal and add localstorage 
+
     function localStorageUpdate(idPost) {
 
         localStorage.setItem("updatePost", JSON.stringify(idPost));
         toggleModals('updatePost')
 
     }
+
+    // view modal and add localstorage 
+
     function DeletePublication(idPost) {
 
         localStorage.setItem("updatePost", JSON.stringify(idPost));
         toggleModals('delete')
 
     }
+
+    // view modal and add localstorage 
+
     function OnePost(idPost) {
         localStorage.setItem("updatePost", JSON.stringify(idPost))
 
@@ -124,17 +142,18 @@ function Home() {
                                     </>}
                                 <div className='container-dis-like'>
                                     <button className={(x.usersLiked.indexOf(localeStorageUser.userId) !== -1) ? 'red' : 'grey'} onClick={() => LikeDislike('like', x, x.usersLiked, x.usersDisliked)}>
-                                        <i class="fa-solid fa-thumbs-up"></i>
+                                        <i className="fa-solid fa-thumbs-up"></i>
                                         : {x.likes}
                                     </button>
                                     {/* test su deja duskijer */}
                                     <button className={(x.usersDisliked.indexOf(localeStorageUser.userId) !== -1) ? 'red' : 'grey'} onClick={() => LikeDislike('dislike', x, x.usersLiked, x.usersDisliked)}>
-                                        <i class="fa-solid fa-thumbs-down"></i>
+                                        <i className="fa-solid fa-thumbs-down"></i>
                                         : {x.dislikes}
                                     </button>
                                 </div>
                                 <div className='truncate-overflow'>
                                     <p>  {moment(x.date).fromNow()}</p>
+                                    <p>Auteur : {x.prenom} {x.nom}</p>
                                     < h2 > {x.title} </h2>
                                     <p className='truncate-overflow' >{x.description}</p>
                                 </div>

@@ -28,6 +28,13 @@ export default function UpdatePost() {
 
         }
     }
+    // save new post
+    // @param {string} id of publication
+    // @param {string} title
+    // @param {string} description
+    // @param {file} image
+    // @param {string} id user
+    // @return reload to home
     const handleUpdate = async (e) => {
         e.preventDefault()
         try {
@@ -66,7 +73,7 @@ export default function UpdatePost() {
 
 
     }
-
+    //verification mime type
     const changeHandler = (e) => {
         const imageMimeType = /image\/(png|jpg|jpeg)/i;
         const file = e.target.files[0];
@@ -76,6 +83,7 @@ export default function UpdatePost() {
         }
         setFile(file);
     }
+    //preview image
     useEffect(() => {
         let fileReader, isCancel = false;
         if (file) {

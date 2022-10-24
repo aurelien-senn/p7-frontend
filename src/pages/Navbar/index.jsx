@@ -13,20 +13,20 @@ export default function Navbar() {
     const { toggleModals } = useContext(UserContext)
     const testLocaleStorage = (typeof localStorage.getItem('user'));
     let userCo;
+
     const logout = () => {
         localStorage.clear();
         window.location.reload();
-
     };
     if ((typeof localStorage.getItem('user')) == 'object') {
         userCo = false
-
-
     } else {
         userCo = true
-
-
     }
+    // view name
+    // @param {string} email user
+    // @param {string} password
+    // @return {string} localstorage (user role token)
     const getName = () => {
         try {
             axios.get(REGISTER_URL, {
@@ -58,38 +58,26 @@ export default function Navbar() {
             <Link to="/">
                 <img src="groupomania-logoplat.png" alt="Logo" className='imgLogo' />
             </Link>
-            <div className='container-imgNavBar'>
-                <img src={dataNavbar.imageUrl} className="imgNavBar" alt="photo de profil" />
-                <p>Bonjour {dataNavbar.prenom} {dataNavbar.nom}</p>
-            </div>
             {userCo ?
-                <nav>
-
-                    <ul>
-
-
-                        <li> <button className="btnNav" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
-                        <li>  <button className="btnNav" onClick={logout}>Déconnexion</button></li>
-                    </ul>
-                </nav>
-
+                <>
+                    <div className='container-imgNavBar'>
+                        <p>Bonjour {dataNavbar.prenom} {dataNavbar.nom}</p>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li> <button className="btnNav" onClick={() => toggleModals('newPost')}>Exprimez-vous</button></li>
+                            <li>  <button className="btnNav" onClick={logout}>Déconnexion</button></li>
+                        </ul>
+                    </nav>
+                </>
                 :
                 <nav>
-
                     <ul>
-
-
                         <li> <button className="btnNav" onClick={() => toggleModals('signUp')}>Inscription</button></li>
                         <li> <button className="btnNav" onClick={() => toggleModals('signIn')}>Connexion</button></li>
-
                     </ul>
                 </nav>
-
             }
-
-
-
-
         </div >
     );
 }

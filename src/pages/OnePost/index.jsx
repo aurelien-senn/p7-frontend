@@ -8,6 +8,7 @@ import authHeader from '../../services/auth-header'
 import * as moment from 'moment';
 import 'moment/locale/fr';
 
+
 const REGISTER_URL = '/api/stuff';
 
 export default function OnePost() {
@@ -15,6 +16,9 @@ export default function OnePost() {
     let imagePost = true;
     const localePost = JSON.parse(localStorage.getItem('updatePost'));
     const testauthHeader = authHeader();
+    // view one publication
+    // @param {string} id of publication
+    // @return {array} publication
     const getOnePublication = () => {
         try {
 
@@ -47,7 +51,13 @@ export default function OnePost() {
     }
 
     useEffect(() => {
-        getOnePublication();
+
+        if (((typeof localStorage.getItem('user')) == 'string')) {
+            getOnePublication();
+        } else {
+            document.location.href = "http://localhost:3001/";
+        }
+
 
     }, []);
 

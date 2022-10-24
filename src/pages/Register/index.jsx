@@ -19,6 +19,9 @@ export default function Register() {
             inputs.current.push(el)
         }
     }
+    // register new user
+    // @param {array} user(email firstname lastname password  )
+    // @return {Boolean} success and reload to login
     const handleForm = async (e) => {
         e.preventDefault()
         console.log(inputs.current[4].value.length);
@@ -32,8 +35,7 @@ export default function Register() {
             return;
         }
         else if (inputs.current[4].value !== inputs.current[3].value) {
-            console.log(inputs.current[4].value);
-            console.log(inputs.current[3].value);
+
             setValidation("les mots de passes ne correspondent pas")
 
             return;
@@ -56,7 +58,7 @@ export default function Register() {
 
                 })
 
-
+            window.location.reload();
             setSuccess(true);
 
         } catch (err) {

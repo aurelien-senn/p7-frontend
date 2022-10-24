@@ -2,10 +2,11 @@ import React, { useContext, useRef, useState } from 'react';
 import axios from '../../api/axios';
 import { UserContext } from '../../context/userContext'
 import './index.css'
-
+import authHeader from '../../services/auth-header'
 const REGISTER_URL = '/api/auth/login';
 
 export default function Login() {
+    const testauthHeader = authHeader();
     const [success, setSuccess] = useState(false);
     const { toggleModals, modalState } = useContext(UserContext)
     const [validation, setValidation] = useState('');
@@ -16,6 +17,11 @@ export default function Login() {
             inputs.current.push(el)
         }
     }
+
+    // connect user
+    // @param {string} email user
+    // @param {string} password
+    // @return {string} localstorage (user role token)
     const handleForm = async (e) => {
         e.preventDefault(inputs.current)
         try {
@@ -27,10 +33,13 @@ export default function Login() {
             await axios.post(REGISTER_URL, { data })
                 .then(res => {
                     localStorage.setItem("user", JSON.stringify(res.data));
+                    console.log(res.data);
+                    console.log(testauthHeader.authorization);
                 })
 
 
             setSuccess(true);
+            console.log(testauthHeader.authorization);
             window.location.reload();
 
         } catch (err) {

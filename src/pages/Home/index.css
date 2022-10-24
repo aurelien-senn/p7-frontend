@@ -196,6 +196,13 @@ html {
     line-height: var(--lh);
 }
 
+.imgProfil {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+}
+
 @media screen and (max-width: 992px) {
     .btn-red-home {
         position: absolute;

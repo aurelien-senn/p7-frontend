@@ -17,14 +17,20 @@ export default function Publication() {
     const inputs = useRef([])
 
     const testauthHeader = authHeader();
-
+    // add inout in array
     const addInputs = el => {
         if (el && !inputs.current.includes(el)) {
             inputs.current.push(el)
 
         }
     }
-
+    // save new post
+    // @param {string} id of publication
+    // @param {string} title
+    // @param {string} description
+    // @param {file} image
+    // @param {string} id user
+    // @return reload to home
     const handleForm = async (e) => {
         e.preventDefault()
 
@@ -62,7 +68,7 @@ export default function Publication() {
             }
         }
     }
-
+    //check mimetype
     const changeHandler = (e) => {
         const imageMimeType = /image\/(png|jpg|jpeg)/i;
         const file = e.target.files[0];
@@ -72,6 +78,7 @@ export default function Publication() {
         }
         setFile(file);
     }
+    //preview image
     useEffect(() => {
         let fileReader, isCancel = false;
         if (file) {
