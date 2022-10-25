@@ -108,7 +108,7 @@ export default function Publication() {
                 success ? (
                     <div className='modalPost'>
                         <div className='modalPost-content'>
-                            <h1> Etes vous sure de vouloir supprimer?</h1 >
+                            <h1> post reussit</h1 >
                         </div>
                     </div>
                 ) : (

@@ -32,7 +32,9 @@
     background-color: rgba(78, 81, 102, 0.95);
 }
 
-
+.postImages {
+    visibility: hidden;
+}
 
 
 @keyframes heart-progress {

@@ -51,7 +51,7 @@ export default function Register() {
             const password = inputs.current[3].value;
 
             const image = file;
-            const data = JSON.stringify({ email: email, password: password, prenom: prenom, nom: nom, image: image });
+            const data = { email: email, password: password, prenom: prenom, nom: nom, image: image };
             console.log('ok');
             await axios.post(REGISTER_URL, { data })
                 .then(res => {
@@ -144,7 +144,7 @@ export default function Register() {
                                     id="repeatPwd"
                                 />
                                 <br />
-                                <label htmlFor="repeatPwd">photo de profil</label>
+                                <label className='postImages' htmlFor="repeatPwd">photo de profil</label>
                                 <br />
                                 <input
                                     ref={addInputs}
@@ -152,6 +152,7 @@ export default function Register() {
                                     name="image"
                                     accept='.jpg,.jpge,.png'
                                     id="image"
+                                    className='postImages'
                                     onChange={
                                         event => { setFile(event.target.files[0]); }
                                     }
